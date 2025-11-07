@@ -43,3 +43,12 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v7
       with:
         commit_message: "Update CRDs for source ${{ steps.resolve-source-name.outputs.name }}"
+    - name: Approve PR and enable auto-merge
+      if: success()
+      run: |
+        # Approve the PR
+        gh pr review --approve ${{ github.event.pull_request.number }}
+        # Enable auto-merge
+        gh pr merge --auto --merge ${{ github.event.pull_request.number }}
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
