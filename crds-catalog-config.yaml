@@ -1,8 +1,24 @@
 sources:
-- name: keycloak-keycloak-k8s-resources
+- name: argo-cd
+  repository: https://github.com/argoproj/argo-cd.git
+  version: v3.0.8
+  files: manifests/crds/*.yaml
+  renovate:
+    datasource: github-releases
+    depName: argoproj/argo-cd
+
+- name: external-secrets
+  repository: https://github.com/external-secrets/external-secrets.git
+  version: v0.20.3
+  files: config/crds/bases/*.yaml
+  renovate:
+    datasource: github-releases
+    depName: external-secrets/external-secrets
+
+- name: keycloak
   repository: https://github.com/keycloak/keycloak-k8s-resources.git
-  # prBranchPrefix: renovate/keycloak-keycloak-k8s-resources
+  version: 26.3.5
+  files: kubernetes/*.yml
   renovate:
     datasource: github-tags
     depName: keycloak/keycloak-k8s-resources
-  version: 26.4.0

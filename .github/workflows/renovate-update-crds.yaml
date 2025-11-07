@@ -1,0 +1,45 @@
+name: Update CRDs on Renovate PR
+
+on:
+  pull_request:
+    branches:
+    - "main"
+
+jobs:
+  update-crds:
+    if: startsWith(github.head_ref, 'renovate/crds/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v5
+      with:
+        # ref: ${{ github.head_ref }}
+        fetch-depth: 0
+    - name: Resolve source name from Renovate branch
+      id: resolve-source-name
+      run: |
+        SOURCE_BRANCH="${{ github.head_ref }}"
+        RENOVATE_DEP_NAME="${SOURCE_BRANCH#renovate/crds/}"
+        echo "Renovate depName extracted: $RENOVATE_DEP_NAME"
+
+        # Resolve the source name to match the naming in the config file
+        RESOLVED_NAME=$(yq eval '.sources[] | select(.renovate.depName == "'${RENOVATE_DEP_NAME}'") | .name' crds-catalog-config.yaml)
+        if [ -z "$RESOLVED_NAME" ]; then
+          echo "Could not resolve source name for depName '$RENOVATE_DEP_NAME'. Exiting."
+          exit 1
+        fi
+        echo "Resolved source name: $RESOLVED_NAME"
+        echo "name=$RESOLVED_NAME" >> "$GITHUB_OUTPUT"
+    - name: Update CRDs for resolved source
+      env:
+        RESOLVED_NAME: ${{ steps.resolve-source-name.outputs.name }}
+      run: |
+        echo "Running update crds script for source name: $RESOLVED_NAME .."
+        echo ""
+        ./update-crds.sh "$RESOLVED_NAME"
+    - uses: stefanzweifel/git-auto-commit-action@v7
+      with:
+        commit_message: "Update CRDs for source $RESOLVED_NAME"

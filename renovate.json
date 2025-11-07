@@ -1,17 +1,24 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
-    ":dependencyDashboard"
+    "config:recommended"
   ],
   "customManagers": [
     {
       "customType": "jsonata",
       "fileFormat": "yaml",
-      "managerFilePatterns": ["/config.yaml/"],
+      "managerFilePatterns": ["/crds-catalog-config.yaml/"],
       "matchStrings": [
-        "projects.{ 'datasource': renovate.datasource, 'depName': renovate.depName, 'currentValue': renovate.version }"
+        "sources.{ 'datasource': renovate.datasource, 'depName': renovate.depName, 'currentValue': version }"
       ]
+    }
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["custom.jsonata"],
+      "branchTopic": "crds/{{depName}}",
+      "automerge": true,
+      "automergeStrategy": "squash"
     }
   ]
 }
