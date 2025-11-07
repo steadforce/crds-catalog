@@ -1,0 +1,8 @@
+sources:
+- name: keycloak-keycloak-k8s-resources
+  repository: https://github.com/keycloak/keycloak-k8s-resources.git
+  # prBranchPrefix: renovate/keycloak-keycloak-k8s-resources
+  renovate:
+    datasource: github-tags
+    depName: keycloak/keycloak-k8s-resources
+  version: 26.4.0

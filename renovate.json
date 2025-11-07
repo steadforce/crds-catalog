@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard"
+  ],
+  "customManagers": [
+    {
+      "customType": "jsonata",
+      "fileFormat": "yaml",
+      "managerFilePatterns": ["/config.yaml/"],
+      "matchStrings": [
+        "projects.{ 'datasource': renovate.datasource, 'depName': renovate.depName, 'currentValue': renovate.version }"
+      ]
+    }
+  ]
+}
