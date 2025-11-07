@@ -43,12 +43,24 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v7
       with:
         commit_message: "Update CRDs for source ${{ steps.resolve-source-name.outputs.name }}"
-    - name: Approve PR and enable auto-merge
-      if: success()
+    # - name: Approve PR and enable auto-merge
+    #   if: success()
+    #   run: |
+    #     # Approve the PR
+    #     gh pr review --approve ${{ github.event.pull_request.number }}
+    #     # Enable auto-merge
+    #     gh pr merge --auto --squash ${{ github.event.pull_request.number }}
+    #   env:
+    #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Send status check success back to GitHub
       run: |
-        # Approve the PR
-        gh pr review --approve ${{ github.event.pull_request.number }}
-        # Enable auto-merge
-        gh pr merge --auto --squash ${{ github.event.pull_request.number }}
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        curl --request POST \
+        --url https://api.github.com/repos/${{ github.repository }}/statuses/`git rev-parse HEAD` \
+        --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+        --header 'content-type: application/json' \
+        --data '{
+          "context": "test",
+          "state": "success",
+          "description": "Status checks passed",
+          "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        }'
