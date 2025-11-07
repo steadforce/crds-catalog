@@ -42,4 +42,4 @@ jobs:
         ./update-crds.sh "$RESOLVED_NAME"
     - uses: stefanzweifel/git-auto-commit-action@v7
       with:
-        commit_message: "Update CRDs for source $RESOLVED_NAME"
+        commit_message: "Update CRDs for source ${{ steps.resolve-source-name.outputs.name }}"
