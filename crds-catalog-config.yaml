@@ -25,7 +25,7 @@ sources:
 
 - name: kyverno
   repository: https://github.com/kyverno/kyverno.git
-  version: v1.14.5
+  version: v1.15.2
   helm: true
   files: charts/kyverno
   renovate:
