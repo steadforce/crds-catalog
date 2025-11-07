@@ -16,7 +16,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v5
       with:
-        # ref: ${{ github.head_ref }}
+        ref: ${{ github.head_ref }}
         fetch-depth: 0
     - name: Resolve source name from Renovate branch
       id: resolve-source-name
