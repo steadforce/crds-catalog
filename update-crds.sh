@@ -53,7 +53,7 @@ if [ "$HELM_ENABLED" = "true" ]; then
     for path in $REPO_DIR/$FILES; do
         if [ -d "$path" ]; then
             echo "Rendering chart: $path"
-            helm template "$NAME" "$path" --include-crds >> "$RENDERED_FILE" || {
+            helm template "$NAME" "$path" --dependency-update --include-crds >> "$RENDERED_FILE" || {
                 echo "helm template failed for $path"
                 exit 1
             }
