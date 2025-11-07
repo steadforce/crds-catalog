@@ -33,6 +33,8 @@ sources:
   repository: https://github.com/example/example-crds.git
   version: 1.2.3
   files: manifests/crds/*.yaml
+  # helm: true # optionally enable Helm rendering
+  # files: charts/example-chart # specify chart directory if using Helm
   renovate: # Will be used by Renovate custom manager and by workflow to identify source
     datasource: github-tags
     depName: keycloak/keycloak-k8s-resources

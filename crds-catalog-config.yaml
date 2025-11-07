@@ -22,3 +22,12 @@ sources:
   renovate:
     datasource: github-tags
     depName: keycloak/keycloak-k8s-resources
+
+- name: kyverno
+  repository: https://github.com/kyverno/kyverno.git
+  version: v1.14.5
+  helm: true
+  files: charts/kyverno
+  renovate:
+    datasource: github-releases
+    depName: kyverno/kyverno
