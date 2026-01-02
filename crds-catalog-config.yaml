@@ -9,7 +9,7 @@ sources:
 
 - name: external-secrets
   repository: https://github.com/external-secrets/external-secrets.git
-  version: v1.2.0
+  version: v1.2.1
   files: config/crds/bases/*.yaml
   renovate:
     datasource: github-releases
