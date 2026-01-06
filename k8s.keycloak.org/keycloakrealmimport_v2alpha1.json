@@ -6,6 +6,13 @@
           "description": "The name of the Keycloak CR to reference, in the same namespace.",
           "type": "string"
         },
+        "labels": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Optionally set to add additional labels to the Job created for the import.",
+          "type": "object"
+        },
         "placeholders": {
           "additionalProperties": {
             "properties": {
@@ -3548,6 +3555,12 @@
                   "trustEmail": {
                     "type": "boolean"
                   },
+                  "types": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
                   "updateProfileFirstLoginMode": {
                     "type": "string"
                   }
@@ -4256,6 +4269,12 @@
                         },
                         "trustEmail": {
                           "type": "boolean"
+                        },
+                        "types": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
                         },
                         "updateProfileFirstLoginMode": {
                           "type": "string"
