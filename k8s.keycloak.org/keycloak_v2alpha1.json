@@ -33,6 +33,10 @@
           },
           "type": "array"
         },
+        "automountServiceAccountToken": {
+          "description": "Set this to to false to disable automounting the default ServiceAccount Token and Service CA. This is enabled by default.",
+          "type": "boolean"
+        },
         "bootstrapAdmin": {
           "description": "In this section you can configure Keycloak's bootstrap admin - will be used only for initial cluster creation.",
           "properties": {
@@ -7182,6 +7186,13 @@
         "update": {
           "description": "Configuration related to Keycloak deployment updates.",
           "properties": {
+            "labels": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Optionally set to add additional labels to the Job created for the update.",
+              "type": "object"
+            },
             "revision": {
               "description": "When use the Explicit strategy, the revision signals if a rolling update can be used or not.",
               "type": "string"
