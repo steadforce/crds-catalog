@@ -1,7 +1,7 @@
 sources:
 - name: argo-cd
   repository: https://github.com/argoproj/argo-cd.git
-  version: v3.4.2
+  version: v3.4.3
   files: manifests/crds/*.yaml
   renovate:
     datasource: github-releases
