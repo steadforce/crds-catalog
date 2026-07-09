@@ -2712,6 +2712,42 @@
                   "id": {
                     "type": "string"
                   },
+                  "issuedVerifiableCredentials": {
+                    "items": {
+                      "properties": {
+                        "clientBaseUrl": {
+                          "type": "string"
+                        },
+                        "clientId": {
+                          "type": "string"
+                        },
+                        "clientName": {
+                          "type": "string"
+                        },
+                        "credentialType": {
+                          "type": "string"
+                        },
+                        "expiresAt": {
+                          "type": "integer"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "issuedAt": {
+                          "type": "integer"
+                        },
+                        "revision": {
+                          "type": "string"
+                        },
+                        "userId": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "additionalProperties": false
+                    },
+                    "type": "array"
+                  },
                   "lastName": {
                     "type": "string"
                   },
@@ -2837,6 +2873,39 @@
                   },
                   "username": {
                     "type": "string"
+                  },
+                  "verifiableCredentials": {
+                    "items": {
+                      "properties": {
+                        "createdDate": {
+                          "type": "integer"
+                        },
+                        "credentialConfigurationId": {
+                          "type": "string"
+                        },
+                        "credentialScopeName": {
+                          "type": "string"
+                        },
+                        "revision": {
+                          "type": "string"
+                        },
+                        "updatedDate": {
+                          "type": "integer"
+                        },
+                        "userAttributes": {
+                          "additionalProperties": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object",
+                      "additionalProperties": false
+                    },
+                    "type": "array"
                   }
                 },
                 "type": "object",
@@ -5104,6 +5173,42 @@
                         "id": {
                           "type": "string"
                         },
+                        "issuedVerifiableCredentials": {
+                          "items": {
+                            "properties": {
+                              "clientBaseUrl": {
+                                "type": "string"
+                              },
+                              "clientId": {
+                                "type": "string"
+                              },
+                              "clientName": {
+                                "type": "string"
+                              },
+                              "credentialType": {
+                                "type": "string"
+                              },
+                              "expiresAt": {
+                                "type": "integer"
+                              },
+                              "id": {
+                                "type": "string"
+                              },
+                              "issuedAt": {
+                                "type": "integer"
+                              },
+                              "revision": {
+                                "type": "string"
+                              },
+                              "userId": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object",
+                            "additionalProperties": false
+                          },
+                          "type": "array"
+                        },
                         "lastName": {
                           "type": "string"
                         },
@@ -5236,6 +5341,39 @@
                         },
                         "username": {
                           "type": "string"
+                        },
+                        "verifiableCredentials": {
+                          "items": {
+                            "properties": {
+                              "createdDate": {
+                                "type": "integer"
+                              },
+                              "credentialConfigurationId": {
+                                "type": "string"
+                              },
+                              "credentialScopeName": {
+                                "type": "string"
+                              },
+                              "revision": {
+                                "type": "string"
+                              },
+                              "updatedDate": {
+                                "type": "integer"
+                              },
+                              "userAttributes": {
+                                "additionalProperties": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "type": "object"
+                              }
+                            },
+                            "type": "object",
+                            "additionalProperties": false
+                          },
+                          "type": "array"
                         }
                       },
                       "type": "object",
@@ -5945,6 +6083,42 @@
                   "id": {
                     "type": "string"
                   },
+                  "issuedVerifiableCredentials": {
+                    "items": {
+                      "properties": {
+                        "clientBaseUrl": {
+                          "type": "string"
+                        },
+                        "clientId": {
+                          "type": "string"
+                        },
+                        "clientName": {
+                          "type": "string"
+                        },
+                        "credentialType": {
+                          "type": "string"
+                        },
+                        "expiresAt": {
+                          "type": "integer"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "issuedAt": {
+                          "type": "integer"
+                        },
+                        "revision": {
+                          "type": "string"
+                        },
+                        "userId": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "additionalProperties": false
+                    },
+                    "type": "array"
+                  },
                   "lastName": {
                     "type": "string"
                   },
@@ -6070,6 +6244,39 @@
                   },
                   "username": {
                     "type": "string"
+                  },
+                  "verifiableCredentials": {
+                    "items": {
+                      "properties": {
+                        "createdDate": {
+                          "type": "integer"
+                        },
+                        "credentialConfigurationId": {
+                          "type": "string"
+                        },
+                        "credentialScopeName": {
+                          "type": "string"
+                        },
+                        "revision": {
+                          "type": "string"
+                        },
+                        "updatedDate": {
+                          "type": "integer"
+                        },
+                        "userAttributes": {
+                          "additionalProperties": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object",
+                      "additionalProperties": false
+                    },
+                    "type": "array"
                   }
                 },
                 "type": "object",
@@ -6134,10 +6341,16 @@
               },
               "type": "array"
             },
+            "webAuthnPolicyPasswordlessMediation": {
+              "type": "string"
+            },
             "webAuthnPolicyPasswordlessPasskeysEnabled": {
               "type": "boolean"
             },
             "webAuthnPolicyPasswordlessRequireResidentKey": {
+              "type": "string"
+            },
+            "webAuthnPolicyPasswordlessResidentKey": {
               "type": "string"
             },
             "webAuthnPolicyPasswordlessRpEntityName": {
@@ -6156,6 +6369,9 @@
               "type": "string"
             },
             "webAuthnPolicyRequireResidentKey": {
+              "type": "string"
+            },
+            "webAuthnPolicyResidentKey": {
               "type": "string"
             },
             "webAuthnPolicyRpEntityName": {
