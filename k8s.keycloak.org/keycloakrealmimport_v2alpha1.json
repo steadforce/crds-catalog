@@ -3609,8 +3609,23 @@
                   "linkOnly": {
                     "type": "boolean"
                   },
-                  "organizationId": {
-                    "type": "string"
+                  "organizationLinks": {
+                    "items": {
+                      "properties": {
+                        "autoMembership": {
+                          "type": "boolean"
+                        },
+                        "membershipType": {
+                          "type": "string"
+                        },
+                        "organizationId": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "additionalProperties": false
+                    },
+                    "type": "array"
                   },
                   "postBrokerLoginFlowAlias": {
                     "type": "string"
@@ -4273,6 +4288,12 @@
                   "domains": {
                     "items": {
                       "properties": {
+                        "autoRedirect": {
+                          "type": "boolean"
+                        },
+                        "identityProviderAlias": {
+                          "type": "string"
+                        },
                         "name": {
                           "type": "string"
                         },
@@ -4954,8 +4975,23 @@
                         "linkOnly": {
                           "type": "boolean"
                         },
-                        "organizationId": {
-                          "type": "string"
+                        "organizationLinks": {
+                          "items": {
+                            "properties": {
+                              "autoMembership": {
+                                "type": "boolean"
+                              },
+                              "membershipType": {
+                                "type": "string"
+                              },
+                              "organizationId": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object",
+                            "additionalProperties": false
+                          },
+                          "type": "array"
                         },
                         "postBrokerLoginFlowAlias": {
                           "type": "string"

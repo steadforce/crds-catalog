@@ -6015,6 +6015,15 @@
                       },
                       "type": "array"
                     },
+                    "schedulingGroup": {
+                      "properties": {
+                        "podGroupName": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "additionalProperties": false
+                    },
                     "securityContext": {
                       "properties": {
                         "appArmorProfile": {
@@ -7147,6 +7156,12 @@
                                         },
                                         "signerName": {
                                           "type": "string"
+                                        },
+                                        "userAnnotations": {
+                                          "additionalProperties": {
+                                            "type": "string"
+                                          },
+                                          "type": "object"
                                         }
                                       },
                                       "type": "object",
